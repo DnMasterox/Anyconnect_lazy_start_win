@@ -16,8 +16,6 @@ Function start_vpn(ByVal creds)
         WshShell.SendKeys "{ENTER}"
         WScript.Sleep 2000
   Next
-  WScript.Sleep 5000
-  WshShell.SendKeys "{ENTER}"
 End Function
 
 Function stop_ui_vpn()
