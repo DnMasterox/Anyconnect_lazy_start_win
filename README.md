@@ -1,5 +1,7 @@
 ## "Cisco Anyconnect"
 Lazy connection scripts for Windows
+You need to put your creds to file "creds.txt" and server name to "server.txt" 
+and do not forget to shield symbols with "{     }"
 
 Run "Cisco Anyconnect" from app
 ---------
