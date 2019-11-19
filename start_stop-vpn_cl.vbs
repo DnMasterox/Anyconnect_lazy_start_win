@@ -2,7 +2,7 @@ Function start_vpn()
   Set WshShell = Wscript.CreateObject("WScript.Shell")
   WshShell.run """%PROGRAMFILES(x86)%\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe"""
   WScript.Sleep 5000
-  WshShell.SendKeys "connect myaccess.oraclevpn.com"
+		WshShell.SendKeys "server"
   WshShell.SendKeys "{ENTER}"
   WshShell.SendKeys "{ENTER}"
   WshShell.SendKeys getPassword()
