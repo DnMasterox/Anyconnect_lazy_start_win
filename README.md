@@ -1,8 +1,18 @@
-## "Cisco Anyconnect"
-Lazy connection scripts for Windows
-You need to put the name of server and your credentials 
-to file "credentials.txt" and do not forget to shield 
-symbols for password with "{     }"
+"lazy connection scripts"
+=====================
+Lazy connection scripts for Windows 
+
+Note:
+-----------------------------------
+You need to create "credentials.txt" file at 
+`C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\`
+or define path in ***strAnyconnectPath*** variable and put the name of server and your credentials 
+to this file in order:
+<li> connect server_name
+<li> User name 
+<li> Password
+
+Do not forget to shield symbols for password with "{ }"
 
 Run "Cisco Anyconnect" from app
 ---------

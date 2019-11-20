@@ -1,21 +1,31 @@
-Dim strAnyconnectPath
+Dim strAnyconnectAbsPath
+Dim strAnyconnectRelPath
 Dim strCredentialsFileName
 Dim credentials
+Dim strHelpCall
+Dim strVpnCliFileName
+Dim strVpnUiFileName
 
-strAnyconnectPath = "C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\"
+
+strAnyconnectAbsPath = "C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\"
+strAnyconnectCliRelPath = """%PROGRAMFILES(x86)%\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe"""
 strCredentialsFileName = "credentials.txt"
-credentials = getDataFromTxt(strCredentialsFileName)
-
+credentials = getDataFromTxt(strAnyconnectAbsPath,strCredentialsFileName)
+strVpnCliFileName = "vpncli.exe"
+strVpnUiFileName = "vpnui.exe"
 
 Function start_vpn(ByVal creds)
   Set WshShell = Wscript.CreateObject("WScript.Shell")
-  WshShell.run """%PROGRAMFILES(x86)%\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe"""
+  WshShell.Run strAnyconnectRelPath
   WScript.Sleep 5000
   For i=0 to UBound(creds)
         WshShell.SendKeys creds(i)
         WshShell.SendKeys "{ENTER}"
         WScript.Sleep 2000
   Next
+  WScript.Sleep 10000
+  WshShell.SendKeys "help"
+  WshShell.SendKeys "{ENTER}"
 End Function
 
 Function stop_ui_vpn()
@@ -23,10 +33,10 @@ Function stop_ui_vpn()
 	objShell.Run "taskkill /f /im vpnui.exe /t", , True
 End Function
 
-Function getDataFromTxt(ByVal var)
+Function getDataFromTxt(ByVal pathToFolder, fileName)
 	Const ForReading = 1
     Set objFSO = CreateObject("Scripting.FileSystemObject")
-    Set objTextFile = objFSO.OpenTextFile(strAnyconnectPath & var, ForReading)
+    Set objTextFile = objFSO.OpenTextFile(pathToFolder & fileName, ForReading)
     Dim arrFileName
     FileContent = objTextFile.ReadAll
     arrFileName = Split(FileContent, VbCrLF)
