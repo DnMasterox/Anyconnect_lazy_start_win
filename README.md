@@ -8,9 +8,9 @@ You need to create "credentials.txt" file at
 `C:\Program Files (x86)\Cisco\Cisco AnyConnect Secure Mobility Client\`
 or define path in ***strAnyconnectPath*** variable and put the name of server and your credentials 
 to this file in order:
-<li> connect server_name
-<li> User name 
-<li> Password
+<li> connect {server name}
+<li> {user name} 
+<li> {password}
 
 Do not forget to shield symbols for password with "{ }"
 
