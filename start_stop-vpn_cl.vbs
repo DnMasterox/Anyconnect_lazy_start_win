@@ -1,5 +1,5 @@
 Dim strAnyconnectAbsPath
-Dim strAnyconnectRelPath
+Dim strAnyconnectCliRelPath
 Dim strCredentialsFileName
 Dim credentials
 Dim strHelpCall
@@ -16,7 +16,7 @@ strVpnUiFileName = "vpnui.exe"
 
 Function start_vpn(ByVal creds)
   Set WshShell = Wscript.CreateObject("WScript.Shell")
-  WshShell.Run strAnyconnectRelPath
+  WshShell.Run strAnyconnectCliRelPath
   WScript.Sleep 5000
   For i=0 to UBound(creds)
         WshShell.SendKeys creds(i)
