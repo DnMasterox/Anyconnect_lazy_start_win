@@ -46,12 +46,11 @@ Function getDataFromTxt(ByVal pathToFolder, fileName)
     getDataFromTxt = arrFileName
 End Function
 
-
 Set objWMIService = GetObject ("winmgmts:")
 Set proc = objWMIService.ExecQuery("select * from Win32_Process Where Name='vpnui.exe'")
 If proc.count > 0 Then 
 	stop_ui_vpn()
+	start_vpn(credentials)
 Else
    start_vpn(credentials)
 End If
-
